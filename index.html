@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlpineJS Bootcamp Widgets</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.2.3/dist/cdn.min.js" defer></script>
+    <script src="greet.js"></script>
+    <script src="transportFee.js"></script>
+    <script src="totalPhoneBill.js"></script>
+    <script src="enoughAirtime.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>AlpineJS Bootcamp Widgets</h1>
+        <!-- Greet Widget -->
+        <div x-data="greetWidget()">
+            <h2>Greet Widget</h2>
+            <input x-model="name" placeholder="Enter your name">
+            <select x-model="language">
+                <option value="English">English</option>
+                <option value="Tshivenda">Tshivenda</option>
+                <option value="IsiZulu">IsiZulu</option>
+            </select>
+            <button @click="greet">Greet</button>
+            <p x-text="greeting"></p>
+        </div>
+        
+        <!-- Transport Fee Widget -->
+        <div x-data="transportFeeWidget()">
+            <h2>Transport Fee Widget</h2>
+            <label><input type="radio" x-model="shift" value="morning"> Morning</label>
+            <label><input type="radio" x-model="shift" value="afternoon"> Afternoon</label>
+            <label><input type="radio" x-model="shift" value="night"> Night</label>
+            <button @click="calculateFee">Calculate Fee</button>
+            <p x-text="fee"></p>
+        </div>
+        
+        <!-- Total Phone Bill Widget -->
+        <div x-data="totalPhoneBillWidget()">
+            <h2>Total Phone Bill Widget</h2>
+            <h6>E.g call,sms</h6>
+            <input x-model="phoneString" placeholder="Enter phone usage string">
+            <button @click="calculateBill">Calculate Bill</button>
+            <p x-text="totalBill"></p>
+        </div>
+        
+        <!-- Enough Airtime Widget -->
+        <div x-data="enoughAirtimeWidget()">
+            <h2>Enough Airtime Widget</h2>
+            <input x-model="usageString" placeholder="Enter usage string">
+            <input x-model="availableAirtime" placeholder="Enter available airtime">
+            <button @click="calculateAirtime">Calculate Airtime</button>
+            <p x-text="remainingAirtime"></p>
+        </div>
+    </div>
+</body>
+</html>
